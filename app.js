@@ -1,7 +1,7 @@
 // Contact shown in the closing section. Fill these in to publish real contact details.
 const CONTACTO = {
-  whatsapp: "", // international format, digits only, e.g. "58414XXXXXXX"
-  correo: "",
+  whatsapp: "17547365824", // international format, digits only
+  correo: "buynaguadalupemgt@gmail.com",
 };
 
 const TASA_EJEMPLO = 250;
