@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buyna — Confirma cada pago sin abrir el banco</title>
+<meta name="description" content="Buyna verifica tus pagos de Pago Móvil y Binance, le da a tu equipo una vista segura y te arma tu catálogo en línea.">
+<meta name="theme-color" content="#517ee1">
+<meta property="og:title" content="Buyna — Confirma cada pago sin abrir el banco">
+<meta property="og:description" content="Verificación automática de Pago Móvil y Binance para tiendas en Venezuela.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23517ee1'/%3E%3Ccircle cx='46' cy='18' r='7' fill='%23f397d6'/%3E%3Cpath d='M18 34l8 8 18-18' stroke='%23fdfffc' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="#inicio" aria-label="Buyna, inicio">Buyna</a>
+  <nav class="menu" aria-label="Secciones">
+    <a href="#como">Cómo funciona</a>
+    <a href="#equipo">Tu equipo</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#precios">Precios</a>
+  </nav>
+  <a class="boton boton-chico" href="#fundadoras">Quiero ser fundadora</a>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-texto">
+      <p class="etiqueta">Para tiendas en Venezuela</p>
+      <h1>Confirma cada pago sin abrir el banco.</h1>
+      <p class="lead">Buyna verifica tus pagos de Pago Móvil y Binance, le da a tu equipo una vista segura y te arma tu catálogo en línea.</p>
+      <div class="acciones">
+        <a class="boton" href="#fundadoras">Quiero ser tienda fundadora</a>
+        <a class="boton boton-claro" href="#como">Ver cómo funciona</a>
+      </div>
+      <p class="nota-chica">Las pantallas de esta página son una demostración con datos de ejemplo.</p>
+    </div>
+
+    <div class="telefono" aria-label="Demostración del panel del dueño con pagos llegando en vivo">
+      <div class="pantalla">
+        <div class="app-barra"><span class="punto"></span>Panel del dueño</div>
+        <div class="app-total">
+          <p>Tienda Luna · confirmado hoy</p>
+          <p class="app-monto" id="hero-total">$0,00</p>
+          <p class="app-sub" id="hero-bs">Bs 0,00</p>
+          <div class="app-cajitas">
+            <div class="cajita ok"><span>Confirmados</span><b id="hero-ok">0</b></div>
+            <div class="cajita rev"><span>Para revisar</span><b id="hero-rev">0</b></div>
+          </div>
+        </div>
+        <ul class="feed" id="hero-feed" aria-live="polite"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problema -->
+  <section class="seccion" id="problema">
+    <p class="etiqueta">Hoy en tu tienda</p>
+    <h2>Cada transferencia te espera a ti.</h2>
+    <ol class="pasos">
+      <li class="revela"><span class="num">1</span><p>El cliente paga por Pago Móvil o Binance.</p></li>
+      <li class="revela"><span class="num">2</span><p>Tú abres el banco y buscas la referencia.</p></li>
+      <li class="revela"><span class="num">3</span><p>Solo entonces se entrega el pedido.</p></li>
+    </ol>
+    <p class="aviso revela">Tu equipo no puede confirmar porque no debe ver el saldo de tu cuenta. Si tú no estás, la venta espera.</p>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section class="seccion seccion-azul" id="como">
+    <p class="etiqueta">Cómo funciona</p>
+    <h2>Pruébalo: simula un pago.</h2>
+    <div class="metodos" role="group" aria-label="Método de pago">
+      <button type="button" class="chip activo" data-metodo="pm">Pago Móvil</button>
+      <button type="button" class="chip" data-metodo="bn">Binance</button>
+    </div>
+    <ol class="cascada" id="cascada">
+      <li data-paso="1"><b>El cliente paga</b><span id="paso1-det">Bs 4.500,00 · Ref. 482193</span></li>
+      <li data-paso="2"><b>Buyna consulta tu banco</b><span id="paso2-det">Primera fuente</span></li>
+      <li data-paso="3"><b>Fuente de respaldo</b><span>Solo si la primera no responde</span></li>
+      <li data-paso="4"><b>Confirmado</b><span>En tu panel y en la caja, al instante</span></li>
+    </ol>
+    <div class="cascada-acciones">
+      <button type="button" class="boton boton-blanco" id="simular">Simular pago</button>
+      <button type="button" class="boton boton-borde" id="simular-caida">Simular banco caído</button>
+    </div>
+    <p class="resultado" id="cascada-resultado" aria-live="polite">Toca "Simular pago" para ver el recorrido.</p>
+  </section>
+
+  <!-- Equipo -->
+  <section class="seccion dos-col" id="equipo">
+    <div class="copia">
+      <p class="etiqueta">Para tu equipo</p>
+      <h2>Tu personal confirma pagos sin ver tu saldo.</h2>
+      <ul class="lista">
+        <li>Ven solo el monto, la referencia y la hora.</li>
+        <li>Nadie necesita tu clave del banco.</li>
+        <li>Entregan el pedido sin llamarte.</li>
+      </ul>
+    </div>
+    <div class="telefono" aria-label="Demostración de la vista del personal">
+      <div class="pantalla">
+        <div class="app-barra"><span class="punto"></span>Vista del personal</div>
+        <form class="caja-form" id="caja-form">
+          <label for="caja-ref">Referencia</label>
+          <input id="caja-ref" inputmode="numeric" value="482193" autocomplete="off">
+          <label for="caja-monto">Monto (Bs)</label>
+          <input id="caja-monto" inputmode="decimal" value="4.500,00" autocomplete="off">
+          <button type="submit" class="boton boton-ancho">Verificar pago</button>
+        </form>
+        <div class="caja-resultado" id="caja-resultado" aria-live="polite">
+          <p>Prueba con estos datos, o cambia un número para ver qué pasa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <section class="seccion dos-col inverso" id="catalogo">
+    <div class="copia">
+      <p class="etiqueta">Gratis para todas las tiendas</p>
+      <h2>Toma una foto. Tu producto queda listo para vender.</h2>
+      <p class="texto">Elige un producto y mira cómo Buyna escribe por ti el nombre y la descripción. Mueve la tasa y el precio en bolívares se actualiza solo.</p>
+      <div class="productos" role="group" aria-label="Elige un producto de ejemplo">
+        <button type="button" class="prod-op activo" data-prod="0" aria-label="Cartera">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 26a12 12 0 0124 0" fill="none" stroke="#6e1f50" stroke-width="4"/><rect x="12" y="26" width="40" height="28" rx="6" fill="#f397d6"/><rect x="29" y="30" width="6" height="8" rx="2" fill="#6e1f50"/></svg>
+        </button>
+        <button type="button" class="prod-op" data-prod="1" aria-label="Zapatos deportivos">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 44c0-8 6-14 14-14l10 6c6 4 14 4 20 6 4 1 4 6 0 6H10c-1 0-2-1-2-4z" fill="#517ee1"/><path d="M8 46h48v4H8z" fill="#fdfffc" stroke="#14182b" stroke-width="2"/></svg>
+        </button>
+        <button type="button" class="prod-op" data-prod="2" aria-label="Franela">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 10l-14 8 6 10 6-3v29h24V25l6 3 6-10-14-8c-2 4-6 6-10 6s-8-2-10-6z" fill="#32965d"/></svg>
+        </button>
+      </div>
+      <label class="tasa" for="tasa">Tasa BCV de ejemplo: <b id="tasa-valor">250,00</b> Bs por dólar</label>
+      <input type="range" id="tasa" min="100" max="900" step="5" value="250">
+    </div>
+    <div class="ficha-tienda" aria-live="polite">
+      <div class="ficha-foto" id="ficha-foto"></div>
+      <div class="ficha-cuerpo">
+        <p class="ficha-escribe" id="ficha-escribe">Buyna está escribiendo…</p>
+        <h3 id="ficha-nombre"></h3>
+        <p id="ficha-desc"></p>
+        <p class="ficha-precio"><b id="ficha-usd"></b> <span id="ficha-bs"></span></p>
+        <span class="boton-wa">Pedir por WhatsApp</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resumen -->
+  <section class="seccion" id="resumen">
+    <p class="etiqueta">Cada lunes</p>
+    <h2>Un resumen de tu semana, en palabras simples.</h2>
+    <div class="resumen">
+      <div class="grafico" role="img" aria-label="Ventas por día de ejemplo: el sábado es el mejor día y el domingo el más flojo">
+        <div class="barra-dia" style="--h:45%"><span>Mié</span></div>
+        <div class="barra-dia" style="--h:33%"><span>Jue</span></div>
+        <div class="barra-dia" style="--h:72%"><span>Vie</span></div>
+        <div class="barra-dia mejor" style="--h:100%"><span>Sáb</span></div>
+        <div class="barra-dia" style="--h:30%"><span>Dom</span></div>
+        <div class="barra-dia" style="--h:35%"><span>Lun</span></div>
+        <div class="barra-dia" style="--h:47%"><span>Mar</span></div>
+      </div>
+      <blockquote class="cita">
+        “Tu mejor día fue el sábado y el más flojo el domingo. La hora con más pagos fue de 6 a 7 de la noche. Prueba una promoción corta el domingo.”
+        <cite>Ejemplo con datos de muestra</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Seguridad -->
+  <section class="seccion seccion-tinta" id="seguridad">
+    <p class="etiqueta">Seguridad</p>
+    <h2>Tu dinero nunca pasa por Buyna.</h2>
+    <div class="garantias">
+      <p>Solo leemos los pagos que recibes. Nunca movemos dinero.</p>
+      <p>Nunca te pedimos la contraseña de tu banco.</p>
+      <p>Binance se conecta con una clave de solo lectura.</p>
+      <p>Tus datos de ventas son tuyos.</p>
+    </div>
+  </section>
+
+  <!-- Precios -->
+  <section class="seccion" id="precios">
+    <p class="etiqueta">Precios</p>
+    <h2>Precios simples, en dólares.</h2>
+    <div class="planes">
+      <div class="plan">
+        <h3>Catálogo</h3>
+        <p class="monto">$0</p>
+        <p>Catálogo en línea hasta 30 productos, precios en $ y Bs y pedidos por WhatsApp.</p>
+      </div>
+      <div class="plan">
+        <h3>Verificación</h3>
+        <p class="monto">$35<small>/mes</small></p>
+        <p>Pago Móvil y Binance confirmados solos, vista del personal, resumen semanal y productos ilimitados en tu catálogo.</p>
+      </div>
+      <div class="plan destacado">
+        <h3>Tiendas fundadoras</h3>
+        <p class="monto">$25<small>/mes</small></p>
+        <p>Todo lo de Verificación, con el precio fijo por 12 meses. Solo para las primeras 50 tiendas.</p>
+      </div>
+    </div>
+    <div class="calculadora">
+      <label for="tiendas">¿Cuántas tiendas tienes? <b id="tiendas-valor">1</b></label>
+      <input type="range" id="tiendas" min="1" max="5" step="1" value="1">
+      <p>Precio normal: <b id="precio-normal">$35</b>/mes · Como fundadora: <b id="precio-fund">$25</b>/mes</p>
+      <p class="nota-chica">Cada tienda adicional suma $15 al mes. Paga por Pago Móvil o Binance. 30 días de prueba gratis.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="seccion seccion-azul cierre" id="fundadoras">
+    <h2>Sé una de las 50 tiendas fundadoras.</h2>
+    <p class="lead">Estamos preparando el piloto. Escríbenos y te reservamos un cupo.</p>
+    <div class="acciones" id="contacto"></div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <p><b>Buyna</b> · Hecho para tiendas en Venezuela</p>
+  <p class="nota-chica">Las pantallas de esta página son una demostración con datos de ejemplo.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
